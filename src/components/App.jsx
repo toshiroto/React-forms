@@ -8,19 +8,23 @@ function App() {
     setName(event.target.value);
   }
 
-  function handleClick() {
+  function handleClick(event) {
     setClick(name);
+    event.preventDefault();
   }
+
   return (
     <div className="container">
       <h1>Hello {click} </h1>
-      <input
-        onChange={handleChange}
-        type="text"
-        placeholder="What's your name?"
-        value={name}
-      />
-      <button onClick={handleClick}>Submit</button>
+      <form onSubmit={handleClick}>
+        <input
+          onChange={handleChange}
+          type="text"
+          placeholder="What's your name?"
+          value={name}
+        />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }
